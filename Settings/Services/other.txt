@@ -1,0 +1,24 @@
+# ============================================================
+#   OTHER SERVICES
+#   Each card is a block separated by a BLANK LINE.
+# ============================================================
+
+ICON: fa-solid fa-volume-high
+TITLE: Sound Systems
+TEXT: Indoor and outdoor audio installed and tuned for your space.
+
+ICON: fa-solid fa-tv
+TITLE: TV & Monitor Mounting
+TEXT: Clean, secure wall mounting for TVs and monitors — wires hidden.
+
+ICON: fa-solid fa-display
+TITLE: Multi-TV Setups
+TEXT: Multiple screens for sports bars, offices, and entertainment areas.
+
+ICON: fa-solid fa-lightbulb
+TITLE: LED Lighting
+TEXT: Accent and security LED lighting to brighten and protect your property.
+
+ICON: fa-solid fa-wifi
+TITLE: Networking
+TEXT: Reliable WiFi, Mesh and wired networking so everything stays connected. Starlink installation available!

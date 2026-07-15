@@ -1,0 +1,27 @@
+# ============================================================
+#   FREE ESTIMATE / CONTACT PAGE
+#   Edit the text after each colon.
+# ============================================================
+
+HEAD EYEBROW: Free Estimate
+HEAD TITLE: Let's get you a quote.
+HEAD SUB: Free estimates, and we'll beat any written quote. Reach out however's easiest.
+
+OPTION 1 TITLE: Call Us
+OPTION 1 TEXT: Speak with us directly.
+OPTION 2 TITLE: Text Us
+OPTION 2 TEXT: Send a quick message.
+OPTION 3 TITLE: Free Estimate
+OPTION 3 TEXT: Fill out the form below and we'll get right back to you.
+
+FORM HEADING: Request your free estimate
+FORM NOTE: We typically respond within one business day.
+
+# ---------- Where form submissions are emailed ----------
+# Put your email here to receive estimate requests. The FIRST submission
+# triggers a one-time confirmation email from FormSubmit.co — click the
+# link in it once to turn on delivery.
+FORM EMAIL: contact@desertsecurityservices.com
+
+SUCCESS TITLE: Request sent — thank you!
+SUCCESS TEXT: We've received your request and will get back to you within one business day.

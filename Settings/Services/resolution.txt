@@ -1,0 +1,21 @@
+# ============================================================
+#   CAMERA RESOLUTION GUIDE (the 4 spec boxes)
+#   Each block separated by a BLANK LINE.
+#   MP = the headline number, RES = pixel resolution, NOTE = short blurb.
+# ============================================================
+
+MP: 16MP
+RES: ~4920 × 3280
+NOTE: Maximum detail for large lots and premium, specialized setups.
+
+MP: 12MP
+RES: ~4000 × 3000
+NOTE: Zoom in and crop details like plates or faces over larger areas.
+
+MP: 8MP
+RES: ~3840 × 2160 (4K)
+NOTE: Crisp ultra-HD detail. The gold standard for most homes and businesses.
+
+MP: 5MP
+RES: ~2560 × 1920
+NOTE: Great everyday clarity and storage-efficient. A solid entry-to-mid choice.

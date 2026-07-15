@@ -1,0 +1,37 @@
+# ============================================================
+#   SECURITY CAMERA OPTIONS
+#   Each card is a block separated by a BLANK LINE.
+#   ICON: a Font Awesome class (see fontawesome.com/icons)
+#   BULLET: add as many as you like.  PRICE: optional line.
+# ============================================================
+
+ICON: fa-solid fa-video
+TITLE: Resolution Options
+TEXT: Choose the clarity that fits your needs — from efficient everyday coverage to detail that captures faces and plates.
+BULLET: 5MP — great everyday clarity
+BULLET: 8MP / 4K — crisp ultra-HD detail
+BULLET: 12MP — zoom in without losing detail
+BULLET: 16MP — maximum, premium detail
+
+ICON: fa-solid fa-layer-group
+TITLE: System Sizes
+TEXT: Systems sized for any property, from a small home to a large business.
+BULLET: 8-channel systems
+BULLET: 16-channel systems
+BULLET: 32-channel systems
+BULLET: Expandable as you grow
+
+ICON: fa-solid fa-plug
+TITLE: Power & Connection
+TEXT: Wired or wireless — whatever works best for your property.
+BULLET: POE (single-cable, most reliable)
+BULLET: WiFi (fewer wires)
+BULLET: Cellular (Combine with solar for remote locations)
+BULLET: Solar (no power run needed)
+
+ICON: fa-solid fa-ban
+TITLE: No Monthly Subscription
+TEXT: Own your system outright. Record and view your cameras with no ongoing fees.
+BULLET: No monthly cloud fees
+BULLET: Local recording you control
+BULLET: View live on your phone

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Estimate — SecureView Security Cameras &amp; Alarms</title>
+  <meta name="description" content="Request a free estimate for security cameras or alarms. We beat any written quote. Call, text, or send a message." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Alex+Brush&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="pagehead">
+  <span class="eyebrow" id="headEyebrow">Free Estimate</span>
+  <h1 id="headTitle">Let's get you a quote.</h1>
+  <p id="headSub">Free estimates, and we'll beat any written quote. Reach out however's easiest.</p>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Contact options -->
+    <div class="opts" data-reveal>
+      <div class="opt"><i class="fa-solid fa-phone"></i><h3 id="opt1title">Call Us</h3><p id="opt1text">Speak with us directly.</p><p><a href="#" id="optCall">(000) 000-0000</a></p></div>
+      <div class="opt"><i class="fa-solid fa-comment-sms"></i><h3 id="opt2title">Text Us</h3><p id="opt2text">Send a quick message.</p><p><a href="#" id="optText">(000) 000-0000</a></p></div>
+      <div class="opt"><i class="fa-solid fa-clipboard-check"></i><h3 id="opt3title">Free Estimate</h3><p id="opt3text">Fill out the form below and we'll get right back to you.</p></div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="section__head section__head--center" data-reveal>
+        <h2 class="section__title" id="formHeading">Request your free estimate</h2>
+        <p class="section__lead" id="formNote" style="margin:0 auto">We typically respond within one business day.</p>
+      </div>
+
+      <!-- IMPORTANT: replace the email below with your real address.
+           The FIRST time this form is submitted, FormSubmit.co emails that
+           address a one-time confirmation link — click it once to turn on delivery. -->
+      <form id="estimateForm" class="form-card" action="https://formsubmit.co/contact@desertsecurityservices.com" method="POST" data-reveal>
+        <input type="hidden" name="_subject" value="New estimate request from your website" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="field">
+          <label for="service">I'm interested in *</label>
+          <select id="service" name="Service" required>
+            <option value="">Select an option…</option>
+            <option>Security Cameras</option>
+            <option>Security Alarms</option>
+            <option>Other Services</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="field"><label for="name">Full name *</label><input type="text" id="name" name="Name" required autocomplete="name" /></div>
+          <div class="field"><label for="phone">Phone *</label><input type="tel" id="phone" name="Phone" required autocomplete="tel" /></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field"><label for="email">Email</label><input type="email" id="email" name="Email" autocomplete="email" /></div>
+          <div class="field"><label for="property">Home or business?</label>
+            <select id="property" name="Property Type">
+              <option value="">Select…</option><option>Home</option><option>Business</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Tell us what you need *</label>
+          <textarea id="message" name="Message" required placeholder="e.g. 4 cameras around the house, or an alarm system for my shop…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--accent" style="width:100%;justify-content:center">Send Request</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <i class="fa-solid fa-circle-check"></i>
+        <h3 id="successTitle">Request sent — thank you!</h3>
+        <p id="successText">We've received your request and will get back to you within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="site-common.js?v=2"></script>
+<script>
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+
+  fetchSettings('Settings/Contact/content.txt').then(d => {
+    set('headEyebrow', d['HEAD EYEBROW']); set('headTitle', d['HEAD TITLE']); set('headSub', d['HEAD SUB']);
+    set('opt1title', d['OPTION 1 TITLE']); set('opt1text', d['OPTION 1 TEXT']);
+    set('opt2title', d['OPTION 2 TITLE']); set('opt2text', d['OPTION 2 TEXT']);
+    set('opt3title', d['OPTION 3 TITLE']); set('opt3text', d['OPTION 3 TEXT']);
+    set('formHeading', d['FORM HEADING']); set('formNote', d['FORM NOTE']);
+    set('successTitle', d['SUCCESS TITLE']); set('successText', d['SUCCESS TEXT']);
+    // Send the form to your email if provided in the settings file.
+    if (d['FORM EMAIL'] && d['FORM EMAIL'].indexOf('@') !== -1) {
+      document.getElementById('estimateForm').setAttribute('action', 'https://formsubmit.co/' + d['FORM EMAIL']);
+    }
+  }).catch(() => {});
+
+  // Phone / text links come from the site-wide Settings/site.txt (PHONE).
+  fetchSettings('Settings/site.txt').then(d => {
+    const num = d['PHONE'];
+    if (num && num !== '#') {
+      const clean = num.replace(/[^0-9+]/g, '');
+      const call = document.getElementById('optCall'); call.textContent = num; call.href = 'tel:' + clean;
+      const txt = document.getElementById('optText'); txt.textContent = num; txt.href = 'sms:' + clean;
+    }
+  }).catch(() => {});
+
+  // Preselect service from ?type= (e.g. contact.html?type=cameras)
+  const type = (new URLSearchParams(location.search).get('type') || '').toLowerCase();
+  const sel = document.getElementById('service');
+  if (type === 'cameras') sel.value = 'Security Cameras';
+  else if (type === 'alarms') sel.value = 'Security Alarms';
+  else if (type === 'other') sel.value = 'Other Services';
+
+  // Submit the form natively (like the working reserve page) so FormSubmit
+  // handles the confirmation/thank-you flow directly. Send them back here after.
+  (function () {
+    const form = document.getElementById('estimateForm');
+    if (form && !form.querySelector('input[name="_next"]')) {
+      const next = document.createElement('input');
+      next.type = 'hidden'; next.name = '_next';
+      next.value = location.origin + location.pathname + '?sent=1';
+      form.appendChild(next);
+    }
+    // Show the inline success message if we were redirected back after sending.
+    if (new URLSearchParams(location.search).get('sent') === '1') {
+      if (form) form.style.display = 'none';
+      const ok = document.getElementById('formSuccess');
+      if (ok) ok.style.display = 'block';
+    }
+  })();
+  pageReady();
+</script>
+
+</body>
+</html>

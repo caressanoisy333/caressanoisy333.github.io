@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — SecureView Security Cameras &amp; Alarms</title>
+  <meta name="description" content="Security cameras (5MP–16MP, POE/WiFi/Solar, no subscription), alarm systems (ADT, Ring, SimpliSafe), plus sound, TV mounting, LED lighting, and networking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Alex+Brush&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="pagehead">
+  <span class="eyebrow" id="headEyebrow">Our Services</span>
+  <h1 id="headTitle">Protection, professionally installed.</h1>
+  <p id="headSub">Cameras, alarms, and more — clean installs at the best price around.</p>
+</header>
+
+<!-- ===================== CAMERAS ===================== -->
+<section class="section" id="cameras">
+  <div class="container">
+    <div class="section__head section__head--center" data-reveal>
+      <span class="eyebrow">Security Cameras</span>
+      <h2 class="section__title" id="camHeading">See everything, all the time.</h2>
+      <p class="section__lead" id="camLead">High-resolution systems with no monthly subscription required.</p>
+    </div>
+    <div class="grid grid--3" id="camGrid"></div>
+
+    <!-- Resolution guide -->
+    <div class="section__head section__head--center" data-reveal style="margin-top:80px">
+      <span class="eyebrow">Resolution Guide</span>
+      <h2 class="section__title">Which camera is right for you?</h2>
+    </div>
+    <div class="specs" id="resGrid"></div>
+
+    <!-- IMAGE PLACEHOLDER -->
+    <div class="imgph imgph--wide" data-reveal style="margin-top:40px">
+        <div><i class="fa-solid fa-images"></i><div class="imgph__tag">Image</div>
+            <img class="imgph__img" src="Photos/compareMP.jpg" alt="Outdoor camera install" />
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ALARMS ===================== -->
+<section class="section section--dark" id="alarms">
+  <div class="container">
+    <div class="section__head section__head--center" data-reveal>
+      <span class="eyebrow">Security Alarms</span>
+      <h2 class="section__title" style="color:#fff" id="alarmHeading">Alarm systems, your way.</h2>
+      <p class="section__lead" style="margin:0 auto" id="alarmLead">With or without monthly monitoring — you choose.</p>
+    </div>
+    <div class="grid grid--3" id="alarmGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== OTHER SERVICES ===================== -->
+<section class="section" id="other">
+  <div class="container">
+    <div class="section__head section__head--center" data-reveal>
+      <span class="eyebrow">Other Services</span>
+      <h2 class="section__title" id="otherHeading">While we're there…</h2>
+      <p class="section__lead" id="otherLead">Handy add-ons to get the most from your setup.</p>
+    </div>
+    <div class="grid grid--3" id="otherGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta">
+  <div class="container" data-reveal>
+    <h2 id="ctaHeading">Not sure what you need?</h2>
+    <p id="ctaText">Tell us about your home or business and we'll put together a free estimate.</p>
+    <div class="cta__actions">
+      <a href="contact.html" class="btn btn--accent" id="ctaPrimary">Get a Free Estimate</a>
+    </div>
+  </div>
+</section>
+
+<script src="site-common.js?v=2"></script>
+<script>
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+
+  fetchSettings('Settings/Services/content.txt').then(d => {
+    set('headEyebrow', d['HEAD EYEBROW']); set('headTitle', d['HEAD TITLE']); set('headSub', d['HEAD SUB']);
+    set('camHeading', d['CAMERAS HEADING']); set('camLead', d['CAMERAS LEAD']);
+    set('alarmHeading', d['ALARMS HEADING']); set('alarmLead', d['ALARMS LEAD']);
+    set('otherHeading', d['OTHER HEADING']); set('otherLead', d['OTHER LEAD']);
+    set('ctaHeading', d['CTA HEADING']); set('ctaText', d['CTA TEXT']); set('ctaPrimary', d['CTA PRIMARY']);
+  }).catch(() => {});
+
+  const renderCards = (target, recs) => {
+    document.getElementById(target).innerHTML = recs.map((r, i) => {
+      const bullets = asArray(r.BULLET).map(b => '<li>' + esc(b) + '</li>').join('');
+      const price = r.PRICE ? '<div class="card__price"><strong>' + esc(r.PRICE) + '</strong></div>' : '';
+      return '<div class="card" data-reveal data-delay="' + (i % 3) + '">' +
+        '<div class="card__icon"><i class="' + esc(r.ICON || 'fa-solid fa-star') + '"></i></div>' +
+        '<h3 class="card__title">' + esc(r.TITLE) + '</h3>' +
+        '<p class="card__text">' + esc(r.TEXT) + '</p>' +
+        (bullets ? '<ul class="card__list">' + bullets + '</ul>' : '') + price + '</div>';
+    }).join('');
+    initReveal();
+  };
+
+  fetchText('Settings/Services/cameras.txt').then(t => renderCards('camGrid', parseRecords(t))).catch(() => {});
+  fetchText('Settings/Services/alarms.txt').then(t => renderCards('alarmGrid', parseRecords(t))).catch(() => {});
+  fetchText('Settings/Services/other.txt').then(t => renderCards('otherGrid', parseRecords(t))).catch(() => {});
+
+  fetchText('Settings/Services/resolution.txt').then(t => {
+    const recs = parseRecords(t);
+    document.getElementById('resGrid').innerHTML = recs.map((r, i) =>
+      '<div class="spec" data-reveal data-delay="' + (i % 4) + '">' +
+        '<div class="spec__mp">' + esc(r.MP) + '</div>' +
+        '<div class="spec__res">' + esc(r.RES) + '</div>' +
+        '<div class="spec__note">' + esc(r.NOTE) + '</div></div>').join('');
+    initReveal();
+  }).catch(() => {}).finally(() => pageReady());
+</script>
+
+</body>
+</html>

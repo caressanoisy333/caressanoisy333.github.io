@@ -1,0 +1,25 @@
+# ============================================================
+#   SECURITY ALARM OPTIONS
+#   Each card is a block separated by a BLANK LINE.
+# ============================================================
+
+ICON: fa-solid fa-bell
+TITLE: With Monitoring
+TEXT: Professional 24/7 monitoring so help is dispatched even when you can't respond.
+BULLET: 24/7 professional monitoring
+BULLET: Monthly subscription plans
+BULLET: Peace of mind, day and night
+
+ICON: fa-solid fa-house-lock
+TITLE: Without Monitoring
+TEXT: Self-monitored alarms with no monthly fees — you get the alerts on your phone.
+BULLET: No monthly subscription
+BULLET: Instant phone alerts
+BULLET: You stay in control
+
+ICON: fa-solid fa-shield-halved
+TITLE: Trusted Brands
+TEXT: We install and support the alarm brands people know and trust.
+BULLET: ADT
+BULLET: Ring
+BULLET: SimpliSafe

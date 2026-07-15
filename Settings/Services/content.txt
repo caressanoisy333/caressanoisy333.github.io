@@ -1,0 +1,22 @@
+# ============================================================
+#   SERVICES PAGE — page copy (headings only)
+#   The actual service cards live in the other files in this
+#   folder: cameras.txt, alarms.txt, other.txt, resolution.txt
+# ============================================================
+
+HEAD EYEBROW: Our Services
+HEAD TITLE: Protection, professionally installed.
+HEAD SUB: Cameras, alarms, and more — clean installs at the best price around.
+
+CAMERAS HEADING: See everything, all the time.
+CAMERAS LEAD: High-resolution systems with no monthly subscription required.
+
+ALARMS HEADING: Alarm systems, your way.
+ALARMS LEAD: With or without monthly monitoring — you choose.
+
+OTHER HEADING: While we're there…
+OTHER LEAD: Handy add-ons to get the most from your setup.
+
+CTA HEADING: Not sure what you need?
+CTA TEXT: Tell us about your home or business and we'll put together a free estimate.
+CTA PRIMARY: Get a Free Estimate

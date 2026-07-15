@@ -1,0 +1,23 @@
+# ============================================================
+#   SITE-WIDE SETTINGS
+#   Controls the business name, phone, email, footer, and social
+#   links shown on EVERY page. Edit the text after each colon.
+#   Lines starting with # are notes and are ignored.
+# ============================================================
+
+SITE NAME: AZ Desert Security Services
+# LOGO: the logo image shown in the header & footer is LogoClear.png
+#       (in the main website folder). Replace that file to change the logo.
+TAGLINE: Security Cameras | Alarm Systems
+FOOTER: © 2026 AZ Desert Security Services — All Rights Reserved.
+
+# ---------- Contact ----------
+# Put your real phone number here. It powers the Call/Text buttons.
+PHONE: (480) 415-9405
+# Your email (a mailto: link is added automatically). Use # to hide it.
+EMAIL: contact@desertsecurityservices.com
+
+# ---------- Social links ----------
+# Replace # with your real page link. Leave as # to hide the icon.
+FACEBOOK: #
+INSTAGRAM: #
