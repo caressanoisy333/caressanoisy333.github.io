@@ -34,14 +34,15 @@
         <p class="section__lead" id="formNote" style="margin:0 auto">We typically respond within one business day.</p>
       </div>
 
-      <!-- IMPORTANT: replace the email below with your real address.
-           The FIRST time this form is submitted, FormSubmit.co emails that
-           address a one-time confirmation link — click it once to turn on delivery. -->
-      <form id="estimateForm" class="form-card" action="https://formsubmit.co/ajax/contact@desertsecurityservices.com" method="POST" data-reveal>
-        <input type="hidden" name="_subject" value="New estimate request from your website" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <!-- Web3Forms handles delivery — no server needed.
+           Get a free access key at https://web3forms.com (enter your email,
+           and it's emailed to you instantly). Put it in Settings/Contact/content.txt
+           under FORM ACCESS KEY, or replace the value below. -->
+      <form id="estimateForm" class="form-card" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+        <input type="hidden" name="access_key" id="formAccessKey" value="YOUR_ACCESS_KEY_HERE" />
+        <input type="hidden" name="subject" value="New estimate request from your website" />
+        <input type="hidden" name="from_name" value="Desert Security Services Website" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="field">
           <label for="service">I'm interested in *</label>
@@ -96,9 +97,9 @@
     set('opt3title', d['OPTION 3 TITLE']); set('opt3text', d['OPTION 3 TEXT']);
     set('formHeading', d['FORM HEADING']); set('formNote', d['FORM NOTE']);
     set('successTitle', d['SUCCESS TITLE']); set('successText', d['SUCCESS TEXT']);
-    // Send the form to your email if provided in the settings file.
-    if (d['FORM EMAIL'] && d['FORM EMAIL'].indexOf('@') !== -1) {
-      document.getElementById('estimateForm').setAttribute('action', 'https://formsubmit.co/ajax/' + d['FORM EMAIL']);
+    // Web3Forms access key from the settings file (safe to be public).
+    if (d['FORM ACCESS KEY']) {
+      document.getElementById('formAccessKey').value = d['FORM ACCESS KEY'];
     }
   }).catch(() => {});
 

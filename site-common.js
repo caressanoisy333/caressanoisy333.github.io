@@ -68,12 +68,21 @@
       const btn = form.querySelector('[type="submit"]');
       const original = btn ? btn.textContent : 'Submit';
       if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
-      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      const restore = () => { if (btn) { btn.disabled = false; btn.textContent = original; } };
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal })
         .then(r => {
           if (r.ok) { form.style.display = 'none'; document.getElementById(successId).style.display = 'block'; form.reset(); }
-          else { alert('Something went wrong. Please try again or call us.'); if (btn) { btn.disabled = false; btn.textContent = original; } }
+          else { alert('Something went wrong. Please try again or call us.'); restore(); }
         })
-        .catch(() => { alert('Network error. Please try again or call us.'); if (btn) { btn.disabled = false; btn.textContent = original; } });
+        .catch(err => {
+          alert(err && err.name === 'AbortError'
+            ? 'The request timed out. Please try again in a moment, or call us.'
+            : 'Network error. Please try again or call us.');
+          restore();
+        })
+        .finally(() => clearTimeout(timer));
     });
   };
 

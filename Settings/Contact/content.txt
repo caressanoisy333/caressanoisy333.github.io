@@ -18,10 +18,12 @@ FORM HEADING: Request your free estimate
 FORM NOTE: We typically respond within one business day.
 
 # ---------- Where form submissions are emailed ----------
-# Put your email here to receive estimate requests. The FIRST submission
-# triggers a one-time confirmation email from FormSubmit.co — click the
-# link in it once to turn on delivery.
-FORM EMAIL: contact@desertsecurityservices.com
+# This form uses Web3Forms (https://web3forms.com) to deliver submissions.
+# 1. Go to https://web3forms.com, enter contact@desertsecurityservices.com,
+#    and it instantly emails you a free Access Key.
+# 2. Paste that key below (it is safe to be public).
+# Submissions will then arrive at whatever email you used to create the key.
+FORM ACCESS KEY: fe78ac55-bc46-49b3-9cbe-8088a5e81f08
 
 SUCCESS TITLE: Request sent — thank you!
 SUCCESS TEXT: We've received your request and will get back to you within one business day.
