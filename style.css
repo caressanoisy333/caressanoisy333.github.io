@@ -173,6 +173,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .imgph--wide { min-height: 320px; }
 /* When you add a real image, use: <img class="imgph__img" src="..."> inside .imgph */
 .imgph__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* .imgph--photo shows the full image (resizes to fit, no cropping) */
+.imgph--photo { min-height: 0; padding: 0; border: 0; background: none; display: block; }
+.imgph--photo > div { display: block; }
+.imgph--photo i, .imgph--photo .imgph__tag { display: none; }
+.imgph--photo .imgph__img { position: static; inset: auto; width: 100%; height: auto; object-fit: contain; display: block; }
 
 .imggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
@@ -278,7 +283,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .footer__tagline { color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 280px; }
 .footer__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .footer__col h4 { font-family: var(--font-sans); font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 16px; }
-.footer__col a { display: block; color: rgba(255,255,255,0.65); font-size: 0.94rem; margin-bottom: 10px; transition: color var(--transition); }
+.footer__col a { display: block; color: rgba(255,255,255,0.65); font-size: 0.94rem; margin-bottom: 10px; transition: color var(--transition); overflow-wrap: anywhere; word-break: break-word; }
 .footer__col a:hover { color: var(--accent-soft); }
 .footer__icons { display: flex; gap: 12px; }
 .footer__icons a { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); font-size: 1rem; transition: background var(--transition), color var(--transition), transform var(--transition); }
